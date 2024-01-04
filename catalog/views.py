@@ -29,4 +29,10 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 class BookListView(generic.ListView):
-    model.Book
+    model = Book
+    
+    # context_object_name = 'book_list'
+    
+    # queryset = Book.objects.filter(title__icontains='war')[:5]
+class BookDetailView(generic.DetailView):
+    model = Book
