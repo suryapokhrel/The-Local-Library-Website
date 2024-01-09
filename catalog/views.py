@@ -30,9 +30,12 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 5
+
     
     # context_object_name = 'book_list'
     
     # queryset = Book.objects.filter(title__icontains='war')[:5]
 class BookDetailView(generic.DetailView):
     model = Book
+

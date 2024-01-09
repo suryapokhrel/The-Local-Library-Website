@@ -27,16 +27,21 @@ import uuid # Required for unique book instances
 
 
 class Genre(models.Model):
-    """Model reperesenting a book genre"""
-    
-    name = models.CharField(max_length=200, unique=True, 
-                            help_text="Enter a book genre (e.g.Science fiction, french Poetry etc.)")
-    
+    """Model representing a book genre."""
+    name = models.CharField(
+        max_length=200,
+        unique=True,
+        help_text="Enter a book genre (e.g. Science Fiction, French Poetry etc.)"
+    )
+
     def __str__(self):
+        """String for representing the Model object."""
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('genre_detail', args=[str(self.id)])
+        """Returns the url to access a particular genre instance."""
+        return reverse('genre-detail', args=[str(self.id)])
+
     
 
 class Book(models.Model):
